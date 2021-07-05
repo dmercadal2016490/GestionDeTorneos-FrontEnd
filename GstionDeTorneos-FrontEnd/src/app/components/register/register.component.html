@@ -1,0 +1,19 @@
+<html>
+    <form #register="ngForm" (ngSubmit)="onSubmit(register)">
+        <img src="../../../assets/img/laliguilla.png" class="imagen">
+        <h1 class="texto1">Registrate</h1><br>
+        <p class="texto2">Nombre</p>
+        <input [(ngModel)]="user.name" name="name" type="text" placeholder="Ingrese su nombre"><br><br>
+        <p class="texto2">Apellido</p>
+        <input [(ngModel)]="user.lastname" name="lastname" type="text" placeholder="Ingrese su Apellido"><br><br>
+        <p class="texto2">Username</p>
+        <input [(ngModel)]="user.username" name="username" type="text" placeholder="Ingrese su Username"><br><br>
+        <p class="texto2">Password</p>
+        <input [(ngModel)]="user.password" name="password" type="password" placeholder="Ingrese su contraseña"><br><br>
+        <p class="texto2">Email</p>
+        <input [(ngModel)]="user.email" name="email" type="email" placeholder="example@gmail.com"><br><br>
+        <button type="submit" class="btn btn-primary boton">Crear Cuenta</button><hr>
+        <p class="texto3">¿Ya tienes una cuenta?</p>
+        <button class="btn btn-success boton2">Iniciar secion</button><br><br>
+    </form>
+</html>

@@ -1,0 +1,35 @@
+<body>
+    <div class="division1">
+        <br><br><br><br><br><br><h1 class="texto1">Mi</h1>
+        <h1 class="texto2">Perfil</h1>
+        <br><br><br><p>.</p>
+    </div><br>
+    <form class="division2" (ngSubmit)="onSubmit()">
+        <div class="divisionImagen">
+            <img *ngIf="user.image == null" class="imagen" src="../../../assets/img/usuario.png">
+            <img *ngIf="user.image" class="mb-4 imagen2" width="72" height="72" src="{{uri+'getImage/'+user.image}}" alt="Imagen de perfil">
+        </div>
+        <div class="divisionTexto">
+            <p class="texo3">Nombre</p>
+            <div class="division3">
+                <input [(ngModel)]="user.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="Tu nombre">
+            </div> 
+            <p class="texo3">Apellido</p>
+            <div class="division3">
+                <input [(ngModel)]="user.lastname" name="lastname" #lastname="ngModel" class="form-control" id="inputLastName" type="text" placeholder="Tu apellido">
+            </div>
+            <p class="texo3a">Username</p>
+            <div class="division3">
+                <input [(ngModel)]="user.username" name="username" #username="ngModel" class="form-control" id="inputUserName" type="text" placeholder="Tu username">
+            </div>
+            <p class="texo3a">Correo</p>
+            <div class="division3">
+                <input [(ngModel)]="user.email" name="email" #email="ngModel" class="form-control" id="inputEmail" type="email" placeholder="Tu correo">
+            </div><hr>
+            <button type="submit" class="btn btn-primary col-lg-3 mx-2">Guardar cambios</button>
+            <button type="button" class="btn btn-danger col-lg-3 mx-2" routerLink="/user">Cancelar</button>
+        </div>
+    </form>
+
+    <h2 class="copy">&copy;Grupo #2</h2>
+</body>

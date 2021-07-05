@@ -1,0 +1,20 @@
+.texto1{
+    font-size: 25px;
+    font-family: verdana;
+}
+
+.imagen{
+    height: 60px;
+    width: 150px;
+}
+
+.imagenUser{
+    height: 50px;
+    width: 50px;
+    border-radius: 150px;
+}
+
+.texto2{
+    font-family: Monoespaciado;
+    font-size: 25px;
+}

@@ -1,0 +1,56 @@
+html{
+    background-image: url('../../../assets/img/FondoIndex.png');
+    background-size: cover;
+}
+
+.division{
+    margin-left: 1050px;
+    margin-top: 90px;
+    margin-bottom: 50px;
+}
+
+button{
+    border-radius: 50px;
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.imagen{
+    height: 130px;
+    width: 200px;
+    margin-left: 500px;
+    float:inline-end;
+}
+
+.boton{
+    float: left;
+}
+
+.texto1{
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    font-family:cursive;
+}
+
+.texto2{
+    color: black;
+    font-size: 25px;
+    text-align: right;
+    font-family: cursive;
+    float: right;
+}
+
+.texto3{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-family:Georgia;
+    -webkit-text-stroke: 2px black;
+}
+
+img{
+    height: 500px;
+    width: 2cm;
+}

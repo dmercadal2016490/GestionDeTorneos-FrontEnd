@@ -1,0 +1,64 @@
+html{
+    background-size: cover;
+    background-image: url('../../../assets/img/fondo10.png');
+}
+
+.formulario{
+    margin-left: 950px;
+    margin-top: 100px;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-bottom: 150px;
+}
+
+.texto1{
+    font-size: 50px;
+    text-align: center;
+    font-family: cursive;
+    -webkit-text-stroke: 5px black;
+}
+
+.boton{
+    background-color: yellowgreen;
+    color: white;
+    margin-left: 50px;
+    border-radius: 50px;
+    width: 150px;
+    height: 40px;
+    border-style: hidden;
+}
+
+.boton2{
+    margin-left: 50px;
+    border-radius: 50px;
+    width: 150px;
+}
+
+.texto3{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-family:Georgia;
+}
+
+.division{
+    background-color: lightgray;
+    height: 50px;
+    width: 55px;
+    float: left;
+    padding: 3px;
+}
+
+.input{
+    font-size: 16px;
+    height: 50px;
+    width: 300px;
+    padding: 20px;
+    font-family: Georgia;
+    background-color: lightgray;
+    border-style: hidden;
+}
+
+.texto2{
+    font-family: Tw Cen MT;
+}

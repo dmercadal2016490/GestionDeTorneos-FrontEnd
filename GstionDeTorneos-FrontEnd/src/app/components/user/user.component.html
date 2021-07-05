@@ -1,0 +1,93 @@
+<body>
+    <div class="division1">
+        <br><br><br><br><br><br><h1 class="texto1">Mi</h1>
+        <h1 class="texto2">Perfil</h1>
+        <br><br><br><p>.</p>
+    </div><br>
+    <div class="division2">
+        <div class="divisionImagen">
+            <img *ngIf="user.image == null" class="imagen" src="../../../assets/img/usuario.png">
+            <img *ngIf="user.image" class="mb-4 imagen2" width="72" height="72" src="{{uri+'getImage/'+user.image}}" alt="Imagen de perfil">
+        </div>
+        <div class="divisionTexto">
+            <p class="texo3">Nombre</p>
+            <div class="division3">
+                <p class="texto4">{{user.name}}</p>
+            </div> 
+            <p class="texo3">Apellido</p>
+            <div class="division3">
+                <p class="texto4"> {{user.lastname}}</p>
+            </div>
+            <p class="texo3a">Username</p>
+            <div class="division3">
+                <p class="texto4"> {{user.username}}</p>
+            </div>
+            <p class="texo3a">Correo</p>
+            <div class="division3">
+                <p class="texto4"> {{user.email}}</p>
+            </div><hr>
+            <button type="button" class="btn btn-danger col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#borrar">
+              Eliminar perfil
+            </button>
+            <button type="button" class="btn btn-primary col-lg-3 mx-2" routerLink="/updateUser">Actualizar perfil</button>
+            <button type="button" class="btn btn-success col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#myModal">
+                Subir imagen
+            </button>
+        </div>
+    </div>
+
+    <h2 class="copy">&copy;Grupo #2</h2>
+</body>
+
+<!-- MODAL PARA SUBIR IMAGEN DE USUARIO -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">User image</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>Elije tu imagen</h3>
+          <form #formUpload="ngForm">
+            <label for="inputImage"></label>
+            <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+   <!-- MODAL PARA ELIMINAR CUENTA -->
+   <div class="modal fade" id="borrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Danger Zone!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>Esta accion es irreversible</h3>
+          <span>Ingresa tu contraseña para borrar la cuenta</span>
+          <form #formRemove="ngForm">
+            <label for="passwordRemove"></label>
+            <input [(ngModel)]="possiblePass" type="password" name="possiblePass" id="passwordRemove" required>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-danger" (click)="deleteUser()" [disabled]="!formRemove.form.valid">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
