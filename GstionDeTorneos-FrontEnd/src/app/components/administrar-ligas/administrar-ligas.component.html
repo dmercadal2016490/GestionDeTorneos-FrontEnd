@@ -26,7 +26,8 @@
 <br>
 
 <div class="card" style="width: 18rem;" *ngFor="let teams of teams">
-    <img src="../../../assets/img/imagen-equipo.jpg" class="card-img-top" alt="...">
+    <img *ngIf="teams.logo == null" src="../../../assets/img/imagen-equipo.jpg" class="card-img-top" alt="...">
+    <img *ngIf="teams.logo" height="170px" class="card-img-top" src="{{uri+'getImageT/'+teams.logo}}" alt="Imagen de Equipo">
     <div class="card-body">
       <h5 class="card-title">{{teams.name}}</h5>
       <p class="card-text">{{teams.country}}</p>
@@ -74,12 +75,12 @@
         <h3>Elije tu imagen para el equipo</h3>
         <form #formUpload="ngForm">
           <label for="inputImage"></label>
-          <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
+          <input type="file" name="image" id="inputImage" (change)="fileChange2($event)" required>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImageTeam()">Upload</button>
       </div>
     </div>
   </div>

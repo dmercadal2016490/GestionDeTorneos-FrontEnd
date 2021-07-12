@@ -8,6 +8,7 @@ export class Team{
         public golesDiferencia:number,
         public partidos:number,
         public puntos:number,
+        public logo:string,
         public players: []
     ){}
 }

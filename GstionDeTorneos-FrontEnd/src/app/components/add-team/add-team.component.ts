@@ -20,7 +20,7 @@ export class AddTeamComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.restUser.getUser();
-    this.team = new Team('','','',null,null,null,null,null,[]);
+    this.team = new Team('','','',null,null,null,null,null,'',[]);
     this.ligaSelected =   JSON.parse(localStorage.getItem('ligaSelected'))
   }
 

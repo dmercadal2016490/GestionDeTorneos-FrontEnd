@@ -64,7 +64,7 @@ export class UploadImageService {
     return new Promise((resolve, reject)=>{
       var formData: any = new FormData();
       var xhr = new XMLHttpRequest();
-      let uri = this.uri+idUser+'/uploadLigaImage/' + idTeam;
+      let uri = this.uri+idUser+'/teamImage/' + idTeam;
 
       for(var i=0; i< files.length; i++){
         formData.append(name, files[i], files[i].name);
