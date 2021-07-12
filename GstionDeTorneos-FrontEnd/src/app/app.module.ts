@@ -17,6 +17,9 @@ import { RestUserService } from './services/restUser/rest-user.service';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { UserComponent } from './components/user/user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { LigasComponent } from './components/ligas/ligas.component';
+import { AdministrarLigasComponent } from './components/administrar-ligas/administrar-ligas.component';
+import { AddTeamComponent } from './components/add-team/add-team.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
     RegisterComponent,
     PrincipalComponent,
     UserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    LigasComponent,
+    AdministrarLigasComponent,
+    AddTeamComponent
   ],
   imports: [
     BrowserModule,

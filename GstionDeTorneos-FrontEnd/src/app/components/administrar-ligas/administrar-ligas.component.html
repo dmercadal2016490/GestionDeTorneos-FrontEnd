@@ -1,0 +1,32 @@
+<div class="titulo">
+    <br>
+    <br>
+    <h1>{{ligaSelected.name}}</h1>
+    <p>{{ligaSelected.descripcion}}</p>
+</div>
+
+<form>
+    <fieldset disabled>
+      <legend>Número de equipos</legend>
+      <div class="mb-3">
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ligaSelected.teamCount}} Equipos">
+      </div>
+    </fieldset>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-primary" type="button" routerLink="/addTeam">Agregar Equipo</button>
+      <button class="btn btn-secondary" type="button">Agregar Marcador</button>
+      <button class="btn btn-success" type="button">Editar Liga</button>
+    </div>
+</form>
+
+<br>
+<br>
+
+<div class="card" style="width: 18rem;" *ngFor="let teams of teams">
+    <img src="../../../assets/img/imagen-equipo.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{teams.name}}</h5>
+      <p class="card-text">{{teams.country}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>

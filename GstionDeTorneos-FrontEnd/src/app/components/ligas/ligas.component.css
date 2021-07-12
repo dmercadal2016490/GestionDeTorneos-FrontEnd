@@ -1,0 +1,12 @@
+.titulo{
+    text-align: center;
+}
+
+#cards{
+    margin: 1rem;
+}
+
+.myClass{
+    display: inline-block;
+    margin: 1.25rem;
+}

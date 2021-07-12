@@ -84,5 +84,4 @@ export class RestUserService {
     return this.http.put(this.uri+'deleteUser/'+idUser, {password: password}, {headers:headers})
       .pipe(map(this.extractData))
   }
-
 }

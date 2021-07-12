@@ -1,0 +1,21 @@
+<br>
+<h1 class="text-center">Crear Equipo</h1>
+<hr>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="../../../assets/img/imagen-equipo.jpg" class="myClass" alt="Team Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form (ngSubmit)="onSubmit()" #saveTeam="ngForm" class="form-signin">
+        <input [(ngModel)]="team.name" type="text" id="name" class="form-control" name="name" placeholder="Nombre" required>
+        <input [(ngModel)]="team.country" type="text" id="country" class="form-control" name="country" placeholder="País" required>
+        <input type="submit" class="fadeIn fourth" value="Save team" class="btn btn-success">
+      </form>
+  
+    </div>
+  </div>
