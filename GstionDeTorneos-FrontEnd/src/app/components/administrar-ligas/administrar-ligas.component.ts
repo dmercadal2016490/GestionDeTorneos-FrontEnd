@@ -93,9 +93,9 @@ export class AdministrarLigasComponent implements OnInit {
     console.log(this.filesToUpload)
   }
 
-  obtenerData(teams){
-    this.liga = teams;
-    localStorage.setItem('teamSelected',JSON.stringify(teams))
-    console.log(teams);
+  obtenerData(teamsSelected){
+    this.liga = teamsSelected;
+    localStorage.setItem('teamSelected',JSON.stringify(teamsSelected))
+    console.log(teamsSelected);
   }
 }
