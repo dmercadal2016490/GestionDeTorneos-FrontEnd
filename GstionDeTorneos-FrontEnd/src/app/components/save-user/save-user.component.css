@@ -1,0 +1,62 @@
+html{
+    background-image: url('../../../assets/img/futbol.png');
+    background-size: cover;
+}
+
+form{
+    background-color: white;
+    margin-left: 850px;
+    text-align: center;
+}
+
+.imagen{
+    height: 150px;
+    width: 280px;
+}
+
+.texto1{
+    font-family: Tw Cen MT;
+    font-size: 60px;
+}
+
+.texto2{
+    font-family: Calibri;
+    text-align: left;
+    padding-left: 110px;
+    font-size: 20px;
+}
+
+input{
+    margin-right: 5px;
+    margin-left: 50px;
+    font-size: 20px;
+    border-style: ridge;  
+    border-color: aqua;
+    text-align: left;
+    width: 400px;
+}
+
+.boton{
+    border-radius: 50px;
+    width: 150px;
+}
+
+.boton2{
+    border-radius: 50px;
+    width: 150px;
+}
+
+.texto3{
+    font-family: Tw Cen MT;
+    font-size: 30px;
+}
+
+select{
+    margin-right: 5px;
+    margin-left: 50px;
+    font-size: 20px;
+    border-style: ridge;  
+    border-color: aqua;
+    text-align: left;
+    width: 400px;
+}

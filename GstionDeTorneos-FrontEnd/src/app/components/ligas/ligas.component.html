@@ -34,7 +34,8 @@
 
 <div id="cards">
     <div class="card myClass" style="width: 18rem;" *ngFor="let liga of ligas">
-      <img src="../../../assets/img/soc.jpg" class="card-img-top" alt="...">
+      <img *ngIf="liga.ligaImg == null" src="../../../assets/img/soc.jpg" class="card-img-top" alt="...">
+      <img *ngIf="liga.ligaImg" height="170px" class="card-img-top" src="{{uri+'getImageLiga/'+liga.ligaImg}}" alt="Imagen de liga">
       <div class="card-body">
         <h5 class="card-title">{{liga.name}}</h5>
         <p class="card-text">{{liga.descripcion}}</p>

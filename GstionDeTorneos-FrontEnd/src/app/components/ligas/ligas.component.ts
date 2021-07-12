@@ -4,6 +4,7 @@ import { RestLigaService } from 'src/app/services/restLiga/rest-liga.service';
 import { Liga } from '../../models/liga'
 import { Router } from '@angular/router';
 import { ResourceLoader } from '@angular/compiler';
+import { CONNECTION } from '../../services/global';
 
 @Component({
   selector: 'app-ligas',
@@ -14,8 +15,11 @@ export class LigasComponent implements OnInit {
   ligas;
   user;
   liga: Liga;
+  public uri:string;
 
-  constructor(private restUser: RestUserService, private restLiga: RestLigaService, private route: Router) { }
+  constructor(private restUser: RestUserService, private restLiga: RestLigaService, private route: Router) {
+    this.uri = CONNECTION.URI
+  }
 
   ngOnInit(): void {
     this.liga = new Liga('','','','',null,null)

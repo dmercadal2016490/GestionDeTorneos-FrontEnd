@@ -20,6 +20,7 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { LigasComponent } from './components/ligas/ligas.component';
 import { AdministrarLigasComponent } from './components/administrar-ligas/administrar-ligas.component';
 import { AddTeamComponent } from './components/add-team/add-team.component';
+import { SaveUserComponent } from './components/save-user/save-user.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AddTeamComponent } from './components/add-team/add-team.component';
     UpdateUserComponent,
     LigasComponent,
     AdministrarLigasComponent,
-    AddTeamComponent
+    AddTeamComponent,
+    SaveUserComponent
   ],
   imports: [
     BrowserModule,

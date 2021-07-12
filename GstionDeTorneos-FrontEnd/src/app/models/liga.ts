@@ -3,7 +3,7 @@ export class Liga{
         public _id: string,
         public name: string,
         public descripcion: string,
-        public image: string,
+        public ligaImg: string,
         public teamCount: number,
         public teams: []
     ){}
