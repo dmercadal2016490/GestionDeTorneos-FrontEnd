@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 import { RestLigaService } from 'src/app/services/restLiga/rest-liga.service';
 import { Liga } from '../../models/liga'
@@ -11,7 +11,7 @@ import { CONNECTION } from '../../services/global';
   templateUrl: './ligas.component.html',
   styleUrls: ['./ligas.component.css']
 })
-export class LigasComponent implements OnInit {
+export class LigasComponent implements OnInit, DoCheck {
   ligas;
   user;
   liga: Liga;
@@ -26,6 +26,11 @@ export class LigasComponent implements OnInit {
     this.user = this.restUser.getUser();
     this.ligas = this.user.ligas;
     console.log(this.user._id)
+  }
+
+  ngDoCheck(){
+    this.restLiga.getLiga();
+    this.restUser.getUser();
   }
 
   onSubmit(){

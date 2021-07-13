@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 
 @Component({
   selector: 'app-principal',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-
-  constructor() { }
+  user;
+  constructor(private restUser:RestUserService) {
+    this.user = this.restUser.getUser();
+  }
 
   ngOnInit(): void {
   }

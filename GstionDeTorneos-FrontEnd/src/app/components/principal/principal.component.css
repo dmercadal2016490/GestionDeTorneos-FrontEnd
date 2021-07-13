@@ -1,0 +1,59 @@
+.division1{
+    background-image: url('../../../assets/img/fondo11.png');
+    background-size: cover;
+}
+
+.texto1{
+    color: black;
+    font-family: 'Times New Roman';
+    text-align: center;
+    font-size: 40px;
+}
+
+.texto2{
+    color:white;
+    font-family: Garamond;
+    font-size: 100px;
+    margin-left: 900px;
+}
+
+.texto3{
+    color: black;
+    text-align: center;
+    font-size: 40px;
+    font-family:Georgia;
+}
+
+.texto4{
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-family: Helvetica;
+}
+
+.texto5{
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-family: Helvetica;
+}
+
+.division2{
+    border-style: solid;
+    margin-left: 70px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    float: left;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+button{
+    margin-left: 30px;
+    border-radius: 30px;
+}

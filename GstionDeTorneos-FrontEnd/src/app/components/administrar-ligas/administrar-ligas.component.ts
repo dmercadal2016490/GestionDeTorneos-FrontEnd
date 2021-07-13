@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 import { RestLigaService } from 'src/app/services/restLiga/rest-liga.service';
 import { RestMarcadorService } from 'src/app/services/restMarcador/rest-marcador.service';
@@ -16,11 +16,11 @@ import { formatCurrency } from '@angular/common';
   templateUrl: './administrar-ligas.component.html',
   styleUrls: ['./administrar-ligas.component.css']
 })
-export class AdministrarLigasComponent implements OnInit {
+export class AdministrarLigasComponent implements OnInit, DoCheck {
 
   constructor(private restUser: RestUserService, private restLiga: RestLigaService, private route: Router, private uploadTeam:UploadImageService, private setMarcador:RestMarcadorService) {
     this.uri = CONNECTION.URI
-   }
+  }
   teams;
   team: Team;
   user;
@@ -60,6 +60,10 @@ export class AdministrarLigasComponent implements OnInit {
     })*/
   }
 
+  ngDoCheck(){
+    this.restLiga.getLiga();
+  }
+
   verTeams(){
     this.restLiga.verTeams(this.user._id, this.liga._id).subscribe((res:any)=>{
       if(res){
@@ -89,8 +93,10 @@ export class AdministrarLigasComponent implements OnInit {
       .then((res:any)=>{
         if(res.liga){
           this.liga.image = res.ligaImage;
-          localStorage.setItem('ligaSelected', JSON.stringify(this.ligaSelected));
+          this.liga = res.liga;
+          localStorage.setItem('user', JSON.stringify(this.user));
           alert('Imagen de liga subida con exito');
+          this.route.navigateByUrl('misLigas')
         }else{
           alert(res.message)
         }
@@ -125,7 +131,7 @@ export class AdministrarLigasComponent implements OnInit {
   }
 
   obtenerData(teamsSelected){
-    this.liga = teamsSelected;
+    this.team = teamsSelected;
     localStorage.setItem('teamSelected',JSON.stringify(teamsSelected))
     console.log(teamsSelected);
   }
