@@ -7,3 +7,12 @@
     display: inline-block;
     margin: 1.5rem;
 }
+
+.modal-body{
+    position: relative;
+    
+}
+
+.modal-body{
+    background-image: url("../../../assets/img/futbol.png");
+}
