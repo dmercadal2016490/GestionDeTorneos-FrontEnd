@@ -3,33 +3,8 @@
     <br>
     <h1>Mis ligas</h1>
 </div>
-
-<div>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Ligas</button>
-  </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar una Liga</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form class="form-signin">
-            <label for="inputName">Nombre</label>
-            <input [(ngModel)]="liga.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
-            <label for="inputName">Descripción</label>
-            <input [(ngModel)]="liga.descripcion" name="descripcion" #name="ngModel" class="form-control" id="inputDescripcion" type="text" placeholder="Descripcion" required>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success" (click)="onSubmit()">Guardar Liga</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-primary" type="button" routerLink="/addLiga">Agregar Ligas</button>
 </div>
 
 <div id="cards">
@@ -39,8 +14,61 @@
       <div class="card-body">
         <h5 class="card-title">{{liga.name}}</h5>
         <p class="card-text">{{liga.descripcion}}</p>
-        <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="obtenerData(liga)">Administrar</a>
-        <a class="btn btn-danger mx-2" data-target="#myModal" data-toggle="modal">Remove</a>
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto btn-group-vertical">
+        <button class="btn btn-primary btn-sm" type="button" (click)="obtenerDatos(liga)" routerLink="/administrarLiga">Ver</button>
+        <button class="btn btn-success btn-sm" type="button">Cambiar Imagen</button>
+        <button class="btn btn-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="obtenerData(liga)">Editar</button>
+        <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#eliminarLiga" (click)="obtenerData(liga)">Eliminar</button>
+      </div>
+      <br>
+    </div>
+</div>
+
+<!-- Editar modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Editar liga</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <label for="inputName">Nombre</label>
+        <input [(ngModel)]="liga.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
+        <label for="inputName">Descripción</label>
+        <input [(ngModel)]="liga.descripcion" name="descripcion" #name="ngModel" class="form-control" id="inputDescripcion" type="text" placeholder="Descripcion" required>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="updateLiga()" data-bs-dismiss="modal">Actualizar</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Eliminar Modal -->
+<div class="modal fade" id="eliminarLiga" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminarLigaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eliminarLigaLabel">ELiminar liga</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <label for="inputName">Nombre</label>
+        <input [(ngModel)]="liga.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required disabled>
+        <br>
+        <label>¿Estás seguro de eliminar esta liga? Esta acción es irreversible</label>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" (click)="removeLiga()" data-bs-dismiss="modal">Eliminar</button>
+      </div>
+    </div>
+  </div>
 </div>

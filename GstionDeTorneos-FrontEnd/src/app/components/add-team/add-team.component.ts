@@ -15,6 +15,7 @@ export class AddTeamComponent implements OnInit {
   team;
   user;
   ligaSelected;
+  ligas;
 
   constructor(private restUser: RestUserService, private restTeam: RestTeamService, private route: Router) { }
 
@@ -22,15 +23,15 @@ export class AddTeamComponent implements OnInit {
     this.user = this.restUser.getUser();
     this.team = new Team('','','',null,null,null,null,null,'',[]);
     this.ligaSelected =   JSON.parse(localStorage.getItem('ligaSelected'))
+    this.ligas = this.user.ligas
   }
 
   onSubmit(){
     this.restTeam.saveTeam(this.user._id, this.ligaSelected._id, this.team).subscribe((res:any)=>{
       if(res.aumento){
         alert(res.message)
-        this.ligaSelected = res.aumento
-        localStorage.setItem('ligaSelected', JSON.stringify(this.ligaSelected));
-        this.route.navigateByUrl('administrarLiga');
+        localStorage.setItem('ligaSelected', JSON.stringify(res.aumento));
+        this.route.navigateByUrl('misLigas')
       }else{
         alert(res.message)
       }

@@ -105,7 +105,7 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
   }
 
   uploadImageTeam(){
-    this.uploadTeam.fileRequestTeam(this.user._id,this.teamSelected._id ,[], this.filesToUpload, this.token, 'image')
+    this.uploadTeam.fileRequestTeam(this.user._id,this.team._id ,[], this.filesToUpload, this.token, 'image')
       .then((res:any)=>{
         if(res.team){
           this.team.logo = res.teamImage;

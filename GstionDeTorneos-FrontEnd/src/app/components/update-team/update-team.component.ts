@@ -21,13 +21,13 @@ export class UpdateTeamComponent implements OnInit {
 
   constructor(private restUser: RestUserService,private restTeam: RestTeamService, private restLiga: RestLigaService, private route: Router) {
     this.uri = CONNECTION.URI
-  }
-
-  ngOnInit(): void {
     this.user = this.restUser.getUser();
     this.team = JSON.parse(localStorage.getItem('teamSelected'));
     this.liga = JSON.parse(localStorage.getItem('ligaSelected'))
     this.teamSelected = new Team('','','',null,null,null,null,null,'',[]);
+  }
+
+  ngOnInit(): void {
   }
 
   updateTeam(){
@@ -36,7 +36,6 @@ export class UpdateTeamComponent implements OnInit {
         alert(res.message);
         localStorage.setItem('teamSelected', JSON.stringify(res.teamUpdated))
         this.route.navigateByUrl('administrarLiga')
-        localStorage.removeItem('teamSelected')
       }else{
         alert(res.message)
       }

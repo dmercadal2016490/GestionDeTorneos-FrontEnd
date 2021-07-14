@@ -1,0 +1,14 @@
+<div class="titulo">
+    <br>
+    <br>
+    <h1>Agregar Liga</h1>
+</div>
+
+<form class="form-signin" (ngSubmit)="onSubmit(saveLiga)" #saveLiga="ngForm">
+    <label for="inputName">Nombre</label>
+    <input [(ngModel)]="liga.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
+    <label for="inputName">Descripción</label>
+    <input [(ngModel)]="liga.descripcion" name="descripcion" #name="ngModel" class="form-control" id="inputDescripcion" type="text" placeholder="Descripcion" required>
+
+    <input type="submit" value="Guardar" class="btn btn-success" [disabled]="!saveLiga.form.valid">
+</form>

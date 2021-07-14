@@ -56,4 +56,23 @@ export class RestLigaService {
     return this.http.get(this.uri+idUser+'/verTeams/'+idLiga, {headers:headers})
     .pipe(map(this.extractData))
   }
+
+  updateLiga(idUser, liga){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
+    })
+    let params = JSON.stringify(liga);
+    return this.http.put(this.uri+idUser+'/updateLiga/'+liga._id, params,{headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+  deleteLiga(idUser, idLiga){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
+    })
+    return this.http.put(this.uri+idUser+'/deleteLiga/'+idLiga,null,{headers:headers})
+    .pipe(map(this.extractData))
+  }
 }

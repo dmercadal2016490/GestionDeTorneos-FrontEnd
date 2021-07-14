@@ -1,0 +1,18 @@
+<div class="titulo">
+    <br>
+    <br>
+    <h1>Editar Liga</h1>
+</div>
+
+<form>
+    <div class="mb-3">
+      <label for="idName" class="form-label">Nombre</label>
+      <input [(ngModel)]="liga.name" name="name" #name="ngModel" type="text" class="form-control" id="idName">
+    </div>
+    <div class="mb-3">
+      <label for="idDescripcion" class="form-label">País</label>
+      <input [(ngModel)]="liga.descripcion" name="descripcion" #descripcion="ngModel" type="text" class="form-control" id="idDescripcion">
+    </div>
+    <button (click)="updateLiga()" class="btn btn-primary">Actualizar datos</button>
+    <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar liga</button>
+</form>
