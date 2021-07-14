@@ -31,7 +31,7 @@ export class AddTeamComponent implements OnInit {
       if(res.aumento){
         alert(res.message)
         localStorage.setItem('ligaSelected', JSON.stringify(res.aumento));
-        this.route.navigateByUrl('misLigas')
+        this.route.navigateByUrl('administrarLiga')
       }else{
         alert(res.message)
       }

@@ -10,6 +10,7 @@ import { UploadImageService } from 'src/app/services/uploadImage/upload-image.se
 import { CONNECTION } from '../../services/global';
 import { Marcador } from 'src/app/models/marcador';
 import { formatCurrency } from '@angular/common';
+import { RestTeamService } from 'src/app/services/restTeam/rest-team.service';
 
 @Component({
   selector: 'app-administrar-ligas',
@@ -18,7 +19,7 @@ import { formatCurrency } from '@angular/common';
 })
 export class AdministrarLigasComponent implements OnInit, DoCheck {
 
-  constructor(private restUser: RestUserService, private restLiga: RestLigaService, private route: Router, private uploadTeam:UploadImageService, private setMarcador:RestMarcadorService) {
+  constructor(private restUser: RestUserService, private restLiga: RestLigaService, private route: Router, private uploadTeam:UploadImageService, private setMarcador:RestMarcadorService, private restTeam: RestTeamService) {
     this.uri = CONNECTION.URI
   }
   teams;
@@ -99,9 +100,7 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
         }else{
           alert(res.message)
         }
-      },
-      (error:any) => alert(error.error.message)
-      )
+      },(error:any) => alert(error.error.message))
   }
 
   uploadImageTeam(){
@@ -133,5 +132,30 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
     this.team = teamsSelected;
     localStorage.setItem('teamSelected',JSON.stringify(teamsSelected))
     console.log(teamsSelected);
+  }
+
+  updateTeam(){
+    this.restTeam.updateTeam(this.user._id, this.liga._id, this.team).subscribe((res: any)=>{
+      if(res.teamUpdated){
+        alert(res.message);
+        localStorage.setItem('teamSelected', JSON.stringify(res.teamUpdated))
+        this.route.navigateByUrl('administrarLiga')
+      }else{
+        alert(res.message)
+      }
+    },error => console.log(<any>error))
+  }
+
+  removeTeam(){
+    this.restTeam.deleteTeam(this.user._id, this.liga._id, this.team._id).subscribe((res: any)=>{
+      if(res.teamPull){
+        alert(res.message)
+        localStorage.setItem('ligaSelected', JSON.stringify(res.teamPull));
+        localStorage.removeItem('teamSelected')
+        this.route.navigateByUrl('misLigas')
+      }else{
+        alert(res.message)
+      }
+    })
   }
 }
