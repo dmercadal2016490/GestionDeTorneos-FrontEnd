@@ -38,10 +38,9 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
     this.team = new Team('','','',null,null,null,null,null,'',[])
     this.marcador = new Marcador('',null, null, null, [],[])
     this.ligaSelected =   JSON.parse(localStorage.getItem('ligaSelected'));
-    this.teamSelected = JSON.parse(localStorage.getItem('teamSelected'))
     this.teams = localStorage.getItem('teams');
+    this.teamSelected = JSON.parse(localStorage.getItem('teamSelected'));
     this.user = this.restUser.getUser();
-    console.log(this.teams)
     this.verTeams();
     this.token = this.restUser.getToken();
 
@@ -89,7 +88,7 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
   }
 
   uploadImage(){
-    this.uploadTeam.fileRequestLiga(this.user._id,this.liga._id ,[], this.filesToUpload, this.token, 'image')
+    this.uploadTeam.fileRequestLiga(this.user._id,this.ligaSelected._id ,[], this.filesToUpload, this.token, 'image')
       .then((res:any)=>{
         if(res.liga){
           this.liga.image = res.ligaImage;
@@ -135,6 +134,4 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
     localStorage.setItem('teamSelected',JSON.stringify(teamsSelected))
     console.log(teamsSelected);
   }
-
-
 }

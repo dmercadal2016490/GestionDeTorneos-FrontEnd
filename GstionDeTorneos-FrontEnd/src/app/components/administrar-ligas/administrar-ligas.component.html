@@ -25,15 +25,17 @@
 <br>
 <br>
 
-<div class="card" style="width: 18rem;" *ngFor="let teams of teams">
+<div class="cards" style="width: 18rem;" *ngFor="let teams of teams">
+  <div class="card myClass">
     <img *ngIf="teams.logo == null" src="../../../assets/img/imagen-equipo.jpg" class="card-img-top" alt="...">
     <img *ngIf="teams.logo" height="170px" class="card-img-top" src="{{uri+'getImageT/'+teams.logo}}" alt="Imagen de Equipo">
     <div class="card-body">
       <h5 class="card-title">{{teams.name}}</h5>
       <p class="card-text">{{teams.country}}</p>
-      <a href="**" class="btn btn-primary">Go somewhere</a>
+      <a href="**" class="btn btn-primary" routerLink="/updateTeam" (click)="obtenerData(teams)">Editar</a>
       <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEquipo" (click)="obtenerData(teams)">Subir imagen</a>
     </div>
+  </div>
 </div>
 
 <!-- MODAL PARA SUBIR IMAGEN PARA LIGA -->

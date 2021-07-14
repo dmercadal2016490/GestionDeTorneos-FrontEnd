@@ -1,0 +1,41 @@
+<div class="titulo">
+    <br>
+    <br>
+    <h1>Editar Equipo</h1>
+</div>
+
+<form>
+    <div class="mb-3">
+      <label for="idName" class="form-label">Nombre</label>
+      <input [(ngModel)]="team.name" name="name" #name="ngModel" type="text" class="form-control" id="idName">
+    </div>
+    <div class="mb-3">
+      <label for="idCountry" class="form-label">País</label>
+      <input [(ngModel)]="team.country" name="country" #name="ngModel" type="text" class="form-control" id="idCountry">
+    </div>
+    <button (click)="updateTeam()" class="btn btn-primary">Actualizar datos</button>
+    <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar equipo</button>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Esta acción es irreversible</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de eliminiar al equipo "{{team.name}}"?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="removeTeam()" data-bs-dismiss="modal">Si, estoy de acuerdo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

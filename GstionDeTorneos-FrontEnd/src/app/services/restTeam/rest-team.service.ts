@@ -41,4 +41,23 @@ export class RestTeamService {
     return this.http.put(this.uri+idUser+'/saveTeam/'+idLiga, params, {headers:headers})
     .pipe(map(this.extractData))
   }
+
+  updateTeam(idUser, idLiga, team){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
+    })
+    let params = JSON.stringify(team);
+    return this.http.put(this.uri+idUser+'/updateTeam/'+idLiga+'/'+team._id, params, {headers: headers})
+    .pipe(map(this.extractData))
+  }
+
+  deleteTeam(idUser, idLiga, idTeam){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
+    })
+    return this.http.put(this.uri+idUser+'/deleteTeam/'+idLiga+'/'+idTeam, null, {headers: headers})
+    .pipe(map(this.extractData))
+  }
 }
