@@ -1,0 +1,26 @@
+<body>
+    <p>.</p>
+    <div id="cards">
+        <div class="division1">
+        <h1 class="text-center">Grupos en la base de Datos</h1>
+        </div>
+        <hr>
+        <form class="form-inline justify-content-center">
+            <div class="form-group">
+                <input [(ngModel)]="search2" type="search" name="search2" class="form-control-lg" placeholder="Search">
+            </div>
+        </form>
+        <div class="card myWidth text-white bg-secondary" *ngFor="let team of teams | search2:search2">
+            <div class="card-body">
+              <h5 class="card-title">{{team.name}} | {{team.country}}</h5><hr>
+              <h6 class="card-subtitle">{{team.golesFavor}}</h6><hr>
+              <h6 class="card-subtitle">{{team.golesContra}}</h6><hr>
+              <h6 class="card-subtitle">{{team.golesDiferencia}}</h6><hr>
+              <h6 class="card-subtitle">{{team.partidos}}</h6><hr>
+              <h6 class="card-subtitle">{{team.playerCount}}</h6><hr>
+              <h6 class="card-subtitle">{{team.puntos}}</h6><hr>
+              <p class="card-text">{{team.__v}}</p>
+            </div>
+          </div>
+    </div>
+    </body>
