@@ -94,4 +94,9 @@ export class RestUserService {
     return this.http.post(this.uri + 'saveUser/' + idAdmin, params, {headers:headers})
       .pipe(map(this.extractData));
   }
+
+  getUsers(){
+    return this.http.get(this.uri + 'getUsers')
+      .pipe(map(this.extractData))
+  }
 }

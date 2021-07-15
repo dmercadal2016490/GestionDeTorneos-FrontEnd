@@ -1,0 +1,28 @@
+.division1{
+    background-image: url('../../../assets/img/fondo11.png');
+    background-size: cover;
+}
+
+.texto2{
+    color:white;
+    font-family: Garamond;
+    font-size: 100px;
+    margin-left: 900px;
+}
+
+#cards{
+    margin: 1rem;
+  }
+  
+.myWidth{
+    width: 18rem;
+    display: inline-block;
+    margin: 1.25rem;
+}
+
+img{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    margin-left: 50px;
+}

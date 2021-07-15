@@ -17,13 +17,14 @@ import { SaveUserComponent } from './components/save-user/save-user.component';
 import { UpdateTeamComponent } from './components/update-team/update-team.component';
 import { UpdateLigaComponent } from './components/update-liga/update-liga.component';
 import { SaveLigaComponent } from './components/save-liga/save-liga.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 
 const routes: Routes = [
   {path:'', component:IndexComponent},
   {path:'index',canActivate:[LoggedOutGuard], component:IndexComponent},
   {path:'login',canActivate:[LoggedOutGuard], component:LoginComponent},
   {path:'register',canActivate:[LoggedOutGuard], component:RegisterComponent}, 
-  {path:'principal',canActivate:[LoggedGuard], component:PrincipalComponent},
+  {path:'principal',canActivate:[AdminGuard], component:PrincipalComponent},
   {path:'user',canActivate:[LoggedGuard], component:UserComponent},
   {path:'updateUser',canActivate:[LoggedGuard], component:UpdateUserComponent},
   {path: 'misLigas', canActivate: [LoggedGuard], component: LigasComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'saveUser', canActivate:[AdminGuard], component:SaveUserComponent},
   {path: 'updateTeam', canActivate:[LoggedGuard], component: UpdateTeamComponent},
   {path: 'updateLiga', canActivate: [LoggedGuard], component: UpdateLigaComponent},
+  {path:'listUsers', canActivate:[AdminGuard], component:ListUsersComponent},
   {path:'**', component:NotFoundComponent}
 ];
 
