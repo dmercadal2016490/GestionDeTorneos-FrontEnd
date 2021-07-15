@@ -10,9 +10,9 @@
     margin-left: 900px;
 }
 
-#cards{
+#card{
     margin: 1rem;
-  }
+}
   
 .myWidth{
     width: 18rem;
@@ -26,3 +26,4 @@ img{
     border-radius: 150px;
     margin-left: 50px;
 }
+

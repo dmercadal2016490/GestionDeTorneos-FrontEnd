@@ -23,6 +23,7 @@
                       Más opciones
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a *ngIf="user.role == 'ROLE_ADMIN'" class="dropdown-item" routerLink="/principal">Principal</a></li>
                       <li><a class="dropdown-item" routerLink="/user">Perfil</a></li>
                       <li><a *ngIf="user.role == 'ROLE_ADMIN'" class="dropdown-item" routerLink="/saveUser">Agregar Usuario</a></li>
                       <li><hr class="dropdown-divider"></li>

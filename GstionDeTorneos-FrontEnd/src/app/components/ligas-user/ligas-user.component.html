@@ -1,14 +1,15 @@
 <body>
-
-    <h1>Ligas de: {{userSelected.name}}</h1>
-
-    <div class="card" style="width: 18rem;" *ngFor="let ligas of ligas">
+  <div class="division1">
+    <br><br><h1 class="texto2">Ligas de: {{userSelected.name}}</h1>
+    <br><br><br><p>.</p>
+  </div><br>
+    <div class="card division2" style="width: 18rem;" *ngFor="let ligas of ligas">
         <div class="card-body">
           <h5 class="card-title">Nombre: {{ligas.name}}</h5>
           <p class="card-text">Descripcion: {{ligas.descripcion}}</p>
 
-          <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="obtenerData(ligas)">Editar</button>
-          <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarLiga" (click)="obtenerData(ligas)">Eliminar</button>
+          <button class="btn btn-success btn-sm boton" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="obtenerData(ligas)">Editar</button>
+          <button class="btn btn-danger btn-sm boton" data-bs-toggle="modal" data-bs-target="#eliminarLiga" (click)="obtenerData(ligas)">Eliminar</button>
         </div>
     </div>
 

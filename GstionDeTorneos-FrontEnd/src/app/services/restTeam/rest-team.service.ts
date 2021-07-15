@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class RestTeamService {
   public uri:string
+  public team;
   public httpOptions ={
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -58,6 +59,17 @@ export class RestTeamService {
       'Authorization': this.restUser.getToken()
     })
     return this.http.put(this.uri+idUser+'/deleteTeam/'+idLiga+'/'+idTeam, null, {headers: headers})
+    .pipe(map(this.extractData))
+  }
+
+  getTeam(){
+    let team = JSON.parse(localStorage.getItem('teamSelected'));
+    if(team != undefined || team != null){
+      this.team = team
+    }else{
+      this.team = null;
+    }
+    return this.http.get(this.uri + 'team/')
     .pipe(map(this.extractData))
   }
 }

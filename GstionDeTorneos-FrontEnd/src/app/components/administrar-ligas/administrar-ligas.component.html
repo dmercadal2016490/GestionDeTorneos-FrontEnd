@@ -32,6 +32,10 @@
     <div class="card-body">
       <p class="card-text">{{teams.country}}</p>
       <p class="card-text">Puntos de Equipo: {{teams.puntos}}</p>
+      <p class="card-text">Goles a favor: {{teams.golesFavor}}</p>
+      <p class="card-text">Goles en contra: {{teams.golesContra}}</p>
+      <p class="card-text">Goles diferencia: {{teams.golesDiferencia}}</p>
+      <p class="card-text">Partidos jugados: {{teams.partidos}}</p>
       <a href="**" class="btn btn-primary boton" (click)="obtenerData(teams)" data-bs-toggle="modal" data-bs-target="#editarTeam">Editar</a>
       <a class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#modalEquipo" (click)="obtenerData(teams)">Subir imagen</a>
     </div>
