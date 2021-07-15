@@ -39,14 +39,12 @@
 </div>
 
 <!-- MODAL PARA SUBIR IMAGEN PARA LIGA -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" data-bs-backdrop="static" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="myModalLabel">League image</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <br>
@@ -72,14 +70,12 @@
 </div>
 
 <!-- MODAL PARA SUBIR IMAGEN PARA EQUIPO -->
-<div class="modal fade" id="modalEquipo" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" data-bs-backdrop="static" id="modalEquipo" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="myModalLabel">Team image</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <br>
@@ -107,14 +103,12 @@
 
 <!-- MODAL PARA Agregar marcador -->
 
-<div class="modal fade" id="agregarMarcador" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" data-bs-backdrop="static" id="agregarMarcador" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="myModalLabel">Marcador</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" >
         <select name="equipo1" id="equipoSelect1" [(ngModel)]="marcador.equipo1">
@@ -146,7 +140,7 @@
 </div>
 
 <!--Modal editar equipo-->
-<div class="modal fade" id="editarTeam" tabindex="-1" aria-labelledby="editarTeamLabel" aria-hidden="true">
+<div class="modal fade" data-bs-backdrop="static" id="editarTeam" tabindex="-1" aria-labelledby="editarTeamLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -154,18 +148,23 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <br>
         <form>
           <label for="inputName">Nombre</label>
           <input [(ngModel)]="team.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
           <label for="inputCountry">Descripción</label>
           <input [(ngModel)]="team.country" name="country" #country="ngModel" class="form-control" id="inputCountry" type="text" placeholder="country" required>
         </form>
+        <br>
+        <div></div>
+        <div class="d-grid gap-2 d-md-block">
+          <br>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="updateTeam()" data-bs-dismiss="modal">Actualizar</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="removeTeam()">Eliminar</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="updateTeam()" data-bs-dismiss="modal">Actualizar</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="removeTeam()">Eliminar</button>
-      </div>
+      
     </div>
   </div>
 </div>

@@ -44,17 +44,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <br>
+        
       <form>
         <label for="inputName">Nombre</label>
         <input [(ngModel)]="liga.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
         <label for="inputName">Descripción</label>
         <input [(ngModel)]="liga.descripcion" name="descripcion" #name="ngModel" class="form-control" id="inputDescripcion" type="text" placeholder="Descripcion" required>
       </form>
-      </div>
+      <br>
+      <div></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-success" (click)="updateLiga()" data-bs-dismiss="modal">Actualizar</button>
       </div>
+      </div>
+      
     </div>
   </div>
 </div>
@@ -68,17 +73,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div></div>
       <form>
         <label for="inputName2">Nombre</label>
         <input [(ngModel)]="liga.name" name="name" #name="ngModel" class="form-control" id="inputName2" type="text" placeholder="name" required disabled>
-        <br>
-        <label>¿Estás seguro de eliminar esta liga? Esta acción es irreversible</label>
+        <div></div>
+        <label >¿Estás seguro de eliminar esta liga? Esta acción es irreversible</label>
       </form>
-      </div>
-      <div class="modal-footer">
+      <div></div>
+      <br>
+      <div class="d-grid gap-2 d-md-block">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-danger" (click)="removeLiga()" data-bs-dismiss="modal">Eliminar</button>
       </div>
+      </div>
+      
     </div>
   </div>
 </div>
@@ -95,15 +104,20 @@
         </button>
       </div>
       <div class="modal-body">
+        <br>
         <h3>Elije tu imagen</h3>
+        <div></div>
+        <br>
         <form #formUpload="ngForm">
           <label for="inputImage"></label>
           <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        <br>
+        <div></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        </div>
       </div>
     </div>
   </div>
