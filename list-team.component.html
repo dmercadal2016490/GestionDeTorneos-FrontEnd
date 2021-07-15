@@ -1,0 +1,45 @@
+<h1 class="texto2">Registrados</h1>
+    <br><br><br><p>.</p>
+</div><br>
+
+
+<div id="cards">
+    <div class="card myWidth text-white bg-secondary" *ngFor="let users of users">
+        <div class="card-body">
+            <img src="../../../assets/img/usuario.png"><br>
+            <h5 class="card-title">{{teams.name}} || {{teams.lCountry}}</h5><hr>
+            <h5 class="card-title">Nombre: {{teams.name}}</h5><hr>
+            <h5 class="card-title">Pais: {{teams.country}}</h5><hr>
+            <h5 class="card-title">Goles A favor: {{teams.golesFavor}}</h5><hr>
+            <h5 class="card-title">Goles en Contra: {{teams.golesContra}}</h5><hr>
+            <h5 class="card-title">Diferencia de Goles: {{teams.golesDiferencia}}</h5><hr>
+            <h5 class="card-title">Partidos Jugados: {{teams.partidos}}</h5><hr>
+            <h5 class="card-title">Puntos: {{teams.puntos}}</h5><hr>
+            <h5 class="card-title">Pais: {{teams.country}}</h5><hr>
+            <h5 class="card-title">Logo: {{teams.logo}}</h5><hr>
+            <h5 class="card-title">Jugador: {{teams.players}}</h5><hr>
+            <button *ngIf="users.role != 'ROLE_ADMIN'" class="btn btn-success" (click)="obetenerData(users)">Editar usuario</button>
+            <button *ngIf="users.role != 'ROLE_ADMIN'" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#borrar" (click)="obetenerData(users)">Eliminar usuario</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="borrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Precaucion!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>¿Esta seguro que desea eliminar a {{teamSelected.name}}?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="borrarData()">Cerrar</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-danger">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
