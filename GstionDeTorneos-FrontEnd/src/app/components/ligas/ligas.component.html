@@ -1,28 +1,38 @@
-<div class="titulo">
-    <br>
-    <br>
-    <h1>Mis ligas</h1>
-</div>
+<body>
+  <br>
+  <br>
+  <div class="titulo">
+    <div id="divTitulo">
+      <br>
+      <h1 id="titulotxt">Mis ligas</h1>
+    </div>
+  </div>
+<br>
+<br>
 <div class="d-grid gap-2 col-6 mx-auto">
   <button class="btn btn-primary" type="button" routerLink="/addLiga">Agregar Ligas</button>
 </div>
 
 <div id="cards">
-    <div class="card myClass" style="width: 18rem;" *ngFor="let liga of ligas">
-      <img *ngIf="liga.ligaImg == null" src="../../../assets/img/soc.jpg" class="card-img-top" alt="...">
-      <img *ngIf="liga.ligaImg" height="170px" class="card-img-top" src="{{uri+'getImageLiga/'+liga.ligaImg}}" alt="Imagen de liga">
-      <div class="card-body">
-        <h5 class="card-title">{{liga.name}}</h5>
-        <p class="card-text">{{liga.descripcion}}</p>
-      </div>
-      <div class="d-grid gap-2 col-6 mx-auto btn-group-vertical">
-        <button class="btn btn-primary btn-sm" type="button" (click)="obtenerDatos(liga)" routerLink="/administrarLiga">Ver</button>
-        <button class="btn btn-success btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#imagenModal" (click)="obtenerData(liga)">Cambiar Imagen</button>
-        <button class="btn btn-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="obtenerData(liga)">Editar</button>
-        <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#eliminarLiga" (click)="obtenerData(liga)">Eliminar</button>
-      </div>
-      <br>
+  <div class="card myClass text-center" style="width: 18rem;" *ngFor="let liga of ligas">
+    <h5 class="card-header">{{liga.name}}</h5>
+    <img *ngIf="liga.ligaImg == null" src="../../../assets/img/soc.jpg" class="card-img-top" alt="...">
+    <img *ngIf="liga.ligaImg" height="190px" class="card-img-top" src="{{uri+'getImageLiga/'+liga.ligaImg}}" alt="Imagen de liga">
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{liga.descripcion}}</li>
+        <br>
+        <li class="list-group-item">
+          <div class="d-grid gap-2 col-6 mx-auto btn-group-vertical">
+            <button class="btn btn-primary btn-sm" type="button" (click)="obtenerDatos(liga)" routerLink="/administrarLiga">Ver</button>
+            <button class="btn btn-success btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#imagenModal" (click)="obtenerData(liga)">Cambiar Imagen</button>
+            <button class="btn btn-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="obtenerData(liga)">Editar</button>
+            <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#eliminarLiga" (click)="obtenerData(liga)">Eliminar</button>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
 </div>
 
 <!-- Editar modal -->
@@ -43,7 +53,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="updateLiga()" data-bs-dismiss="modal">Actualizar</button>
+        <button type="button" class="btn btn-success" (click)="updateLiga()" data-bs-dismiss="modal">Actualizar</button>
       </div>
     </div>
   </div>
@@ -98,3 +108,5 @@
     </div>
   </div>
 </div>
+
+</body>
