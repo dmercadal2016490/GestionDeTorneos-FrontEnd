@@ -83,9 +83,9 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
         this.marcador = res;
         localStorage.setItem('marcador', JSON.stringify(this.marcador))
       }else{
-        alert('No se creo el marcador')
+        alert(res.message)
       }
-    }, error => console.log(<any>error))
+    }, (error:any) => alert(error.error.message))
   }
 
   uploadImage(){
