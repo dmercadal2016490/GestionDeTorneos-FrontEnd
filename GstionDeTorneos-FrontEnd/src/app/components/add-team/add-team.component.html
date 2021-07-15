@@ -1,7 +1,8 @@
+<html>
 <br>
-<h1 class="text-center">Crear Equipo</h1>
+<h1 class="texto1">Crear Equipo</h1>
 <hr>
-<div class="wrapper fadeInDown">
+<div class="formulario">
     <div id="formContent">
       <!-- Tabs Titles -->
   
@@ -12,11 +13,15 @@
   
       <!-- Login Form -->
       <form (ngSubmit)="onSubmit()" #saveTeam="ngForm" class="form-signin">
-        <input [(ngModel)]="team.name" type="text" id="name" class="form-control" name="name" placeholder="Nombre" required>
-        <input [(ngModel)]="team.country" type="text" id="country" class="form-control" name="country" placeholder="País" required>
-        <input type="submit" class="fadeIn fourth" value="Save team" class="btn btn-success">
-        <input type="button" class="btn btn-danger" value="Cancelar" routerLink="/administrarLiga">
+        <p class="texto2">Nombre del equipo</p>
+        <input [(ngModel)]="team.name" type="text" id="name" class="input" name="name" placeholder="Nombre" required><br>
+        <p class="texto2">Pais del equipo</p>
+        <input [(ngModel)]="team.country" type="text" id="country" class="input" name="country" placeholder="País" required><br><br>
+        <input type="submit" class="fadeIn fourth boton" value="Save team" class="btn btn-success boton">
+        <input type="button" class="btn btn-danger boton" value="Cancelar" routerLink="/administrarLiga"><br><br>
       </form>
   
     </div>
   </div>
+  <h2 class="texto3">&copy;Grupo #2</h2>
+</html>  

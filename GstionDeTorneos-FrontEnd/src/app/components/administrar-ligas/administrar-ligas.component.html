@@ -1,21 +1,21 @@
 <div class="titulo">
     <br>
     <br>
-    <h1>{{ligaSelected.name}}</h1>
-    <p>{{ligaSelected.descripcion}}</p>
-</div>
+    <h1 class="texto1">{{ligaSelected.name}}</h1>
+    <p class="texto2">{{ligaSelected.descripcion}}</p><br><br>
+</div><br>
 
-<form>
+<form class="formulario">
     <fieldset disabled>
-      <legend>Número de equipos</legend>
+      <legend class="texto3">Número de equipos</legend>
       <div class="mb-3">
-        <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ligaSelected.teamCount}} Equipos">
+        <input type="text" id="disabledTextInput" class="input" placeholder="{{ligaSelected.teamCount}} Equipos">
       </div>
     </fieldset>
-    <div class="d-grid gap-2 col-6 mx-auto">
-      <button class="btn btn-primary" type="button" routerLink="/addTeam">Agregar Equipo</button>
-      <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#agregarMarcador">Agregar Marcador</button>
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
+    <div>
+      <button class="btn btn-primary col-lg-3 mx-2" type="button" routerLink="/addTeam">Agregar Equipo</button>
+      <button class="btn btn-success col-lg-3 mx-2" type="button" data-bs-toggle="modal" data-bs-target="#agregarMarcador">Agregar Marcador</button>
+      <button type="button" class="btn btn-success col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#myModal">
         Subir imagen para liga
       </button>
     </div>
@@ -26,14 +26,14 @@
 
 <div id="cards" style="width: 18rem;" *ngFor="let teams of teams">
   <div class="card myClass">
+    <h5 class="card-header">{{teams.name}}</h5>
     <img *ngIf="teams.logo == null" src="../../../assets/img/imagen-equipo.jpg" class="card-img-top" alt="...">
     <img *ngIf="teams.logo" height="170px" class="card-img-top" src="{{uri+'getImageT/'+teams.logo}}" alt="Imagen de Equipo">
     <div class="card-body">
-      <h5 class="card-title">{{teams.name}}</h5>
       <p class="card-text">{{teams.country}}</p>
       <p class="card-text">Puntos de Equipo: {{teams.puntos}}</p>
-      <a href="**" class="btn btn-primary" (click)="obtenerData(teams)" data-bs-toggle="modal" data-bs-target="#editarTeam">Editar</a>
-      <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEquipo" (click)="obtenerData(teams)">Subir imagen</a>
+      <a href="**" class="btn btn-primary boton" (click)="obtenerData(teams)" data-bs-toggle="modal" data-bs-target="#editarTeam">Editar</a>
+      <a class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#modalEquipo" (click)="obtenerData(teams)">Subir imagen</a>
     </div>
   </div>
 </div>
