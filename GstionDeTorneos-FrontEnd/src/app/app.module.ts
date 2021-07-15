@@ -25,6 +25,7 @@ import { UpdateTeamComponent } from './components/update-team/update-team.compon
 import { UpdateLigaComponent } from './components/update-liga/update-liga.component';
 import { SaveLigaComponent } from './components/save-liga/save-liga.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { LigasUserComponent } from './components/ligas-user/ligas-user.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     UpdateTeamComponent,
     UpdateLigaComponent,
     SaveLigaComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    LigasUserComponent
   ],
   imports: [
     BrowserModule,

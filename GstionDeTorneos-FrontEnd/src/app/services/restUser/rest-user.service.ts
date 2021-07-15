@@ -96,7 +96,58 @@ export class RestUserService {
   }
 
   getUsers(){
-    return this.http.get(this.uri + 'getUsers')
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri + 'getUsers', {headers:headers})
       .pipe(map(this.extractData))
+  }
+
+  adminDeleteUsers(idUser){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.delete(this.uri + 'adminDeleteUser/'+idUser, {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+  adminUpdateUsers(idUser, user){
+    let params = JSON.stringify(user);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.put(this.uri + 'adminUpdateUser/'+idUser,params, {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+  verLigas(idUser){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri + 'getLigas/'+idUser, {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+  editarLigasAdmin(idUser, liga){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    let params = JSON.stringify(liga);
+    return this.http.put(this.uri+idUser+'/updateLigaAdmin/'+liga._id, params, {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+  eliminarLigaAdmin(idUser, idLiga){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.put(this.uri+idUser+'/deleteLigaAdmin/'+idLiga, {headers:headers})
+    .pipe(map(this.extractData))
   }
 }

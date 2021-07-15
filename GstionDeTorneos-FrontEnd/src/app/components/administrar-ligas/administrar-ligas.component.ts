@@ -44,20 +44,6 @@ export class AdministrarLigasComponent implements OnInit, DoCheck {
     this.user = this.restUser.getUser();
     this.verTeams();
     this.token = this.restUser.getToken();
-
-    /*this.restLiga.verTeams(this.user._id, this.liga._id).subscribe((res:any)=>{
-      if(res){
-        res.forEach(element =>{
-          element.forEach(elementoTeam =>{
-            this.equipo.push(elementoTeam)
-            localStorage.setItem('equipo1', JSON.stringify(this.equipo))
-            this.teams.push(elementoTeam)
-          })
-        });
-      }else{
-        alert('No existe el equipo')
-      }
-    })*/
   }
 
   ngDoCheck(){

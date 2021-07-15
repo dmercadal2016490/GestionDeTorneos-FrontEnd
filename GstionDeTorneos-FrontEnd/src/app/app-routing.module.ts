@@ -18,6 +18,7 @@ import { UpdateTeamComponent } from './components/update-team/update-team.compon
 import { UpdateLigaComponent } from './components/update-liga/update-liga.component';
 import { SaveLigaComponent } from './components/save-liga/save-liga.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { LigasUserComponent } from './components/ligas-user/ligas-user.component';
 
 const routes: Routes = [
   {path:'', component:IndexComponent},
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'updateTeam', canActivate:[LoggedGuard], component: UpdateTeamComponent},
   {path: 'updateLiga', canActivate: [LoggedGuard], component: UpdateLigaComponent},
   {path:'listUsers', canActivate:[AdminGuard], component:ListUsersComponent},
+  {path:'verLigas', canActivate:[AdminGuard], component:LigasUserComponent},
   {path:'**', component:NotFoundComponent}
 ];
 
