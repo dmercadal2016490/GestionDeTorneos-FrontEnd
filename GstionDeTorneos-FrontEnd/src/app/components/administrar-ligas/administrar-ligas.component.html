@@ -14,7 +14,7 @@
     </fieldset>
     <div class="d-grid gap-2 col-6 mx-auto">
       <button class="btn btn-primary" type="button" routerLink="/addTeam">Agregar Equipo</button>
-      <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#agregarMarcador">Agregar Marcador</button>
+      <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#agregarMarcador">Agregar Marcador</button>
       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
         Subir imagen para liga
       </button>
@@ -44,21 +44,29 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="myModalLabel">League image</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <h3>Elije tu imagen</h3>
+        <br>
+        <h3>Elije tu imagen para tu liga</h3>
+        <br>
+        
+        <div></div>
         <form #formUpload="ngForm">
           <label for="inputImage"></label>
           <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
         </form>
+        <br>
+        <div></div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -69,21 +77,30 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="myModalLabel">Team image</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <br>
         <h3>Elije tu imagen para el equipo</h3>
+        
+        <div></div>
+        <br>
         <form #formUpload="ngForm">
           <label for="inputImage"></label>
           <input type="file" name="image" id="inputImage" (change)="fileChange2($event)" required>
         </form>
+        <br>
+        <div></div>
+        
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImageTeam()">Upload</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImageTeam()">Upload</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -95,7 +112,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="myModalLabel">Marcador</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -103,21 +120,27 @@
         <select name="equipo1" id="equipoSelect1" [(ngModel)]="marcador.equipo1">
           <option value="{{teams._id}}"  *ngFor="let teams of teams" >{{teams.name}}</option>
         </select>
-        <br>
-        <td><input [(ngModel)]="marcador.goles1" class="form-control" name="goles1" id="goles1" type="number" placeholder="Goles"></td>
-        <br>
+        <h1>VS</h1>
         <select name="equipo2" id="equipoSelect2" [(ngModel)]="marcador.equipo2">
           <option  value="{{teams._id}}"  *ngFor="let teams of teams" >{{teams.name}}</option>
-          <br>
         </select>
+        <td><input [(ngModel)]="marcador.goles1" class="form-control" name="goles1" id="goles1" type="number" placeholder="Goles"></td>
+        <br>
         <td><input [(ngModel)]="marcador.goles2" class="form-control" name="goles2" id="goles2" type="number" placeholder="Goles"></td>
+        <br>
         <td><input  [(ngModel)]="marcador.jornada" class="form-control" name="jornada" id="jornada" type="number" placeholder="Jornada"></td>
+        
+        <div class="modal-footer-marcador">
+          <div>
+            <br>
+            <br>
+          </div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="saveMarcador()">Agregar Marcador</button>
+        </div>
       </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="saveMarcador()">Agregar Marcador :D</button>
-      </div>
+      
     </div>
   </div>
 </div>
